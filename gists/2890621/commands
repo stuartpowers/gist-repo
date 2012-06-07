@@ -1,0 +1,32 @@
+http://stackoverflow.com/q/10937735/217652
+
+running the commands indvidually works:
+    pip install numpy; pip install pil; pip install aptus;
+ 
+example:
+
+    stu@vervet ~ $ virtualenv --no-site-packages testingpip2
+    New python executable in testingpip2/bin/python
+    Installing distribute..........................................done.
+    stu@vervet ~ $ source testingpip2/bin/activate
+    stu@vervet ~ $ which pip
+    /home/stu/testingpip2/bin/pip
+    stu@vervet ~ $ which python
+    /home/stu/testingpip2/bin/python
+    stu@vervet ~ $ pip install numpy
+    ...
+    stu@vervet ~ $ pip install pil
+    ...
+    stu@vervet ~ $ pip install aptus
+    ...
+    stu@vervet ~ $ which aptuscmd.py
+    /home/stu/testingpip2/bin/aptuscmd.py
+    stu@vervet ~ $ aptuscmd.py
+    ri (-2.0975000000000001, 1.4975000000000001) step 0.0050000000000000001, angle 0.0, iter_limit 999, size (600, 600)
+    center (-0.59999999999999998, 0.0), diam (3.0, 3.0)
+    Total: 0.03s (0.0259s)
+    stu@vervet ~ $ postit Aptus.png
+    /var/www/curl/htdocs/dEg6/Aptus.png
+    http://c.sente.cc/dEg6/Aptus.png
+
+    ### it works!

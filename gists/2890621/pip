@@ -1,0 +1,43 @@
+stu@vervet ~ $ virtualenv --no-site-packages testingpip
+New python executable in testingpip/bin/python
+Installing distribute.................................................................................................................................................................................done.
+stu@vervet ~ $ source testingpip/bin/activate
+stu@vervet ~ $ which pip
+/home/stu/testingpip/bin/pip
+stu@vervet ~ $ which python
+/home/stu/testingpip/bin/python
+stu@vervet ~ $ pip --log=piplog.log install numpy pil aptus
+Downloading/unpacking numpy
+  Downloading numpy-1.6.2.zip (2.9Mb): 2.9Mb downloaded
+  Running setup.py egg_info for package numpy
+    Running from numpy source directory./bin/sh: svnversion: not found
+    non-existing path in 'numpy/distutils': 'site.cfg'
+    F2PY Version 2
+    blas_opt_info:
+    blas_mkl_info:
+      libraries mkl,vml,guide not found in /home/stu/testingpip/lib
+...
+...
+...
+
+Exception: Need numpy, from http://numpy.scipy.org/
+
+----------------------------------------
+Command python setup.py egg_info failed with error code 1 in /home/stu/testingpip/build/aptus
+Storing complete log in /home/stu/.pip/pip.log
+Traceback (most recent call last):
+  File "/home/stu/testingpip/bin/pip", line 9, in <module>
+    load_entry_point('pip==1.1', 'console_scripts', 'pip')()
+  File "/home/stu/testingpip/lib/python2.6/site-packages/pip-1.1-py2.6.egg/pip/__init__.py", line 116, in main
+    return command.main(args[1:], options)
+  File "/home/stu/testingpip/lib/python2.6/site-packages/pip-1.1-py2.6.egg/pip/basecommand.py", line 140, in main
+    logger.fatal('Storing complete log in %s' % log_fn)
+  File "/home/stu/testingpip/lib/python2.6/site-packages/pip-1.1-py2.6.egg/pip/log.py", line 50, in fatal
+    self.log(self.FATAL, msg, *args, **kw)
+  File "/home/stu/testingpip/lib/python2.6/site-packages/pip-1.1-py2.6.egg/pip/log.py", line 77, in log
+    pip.backwardcompat.fwrite(consumer, rendered)
+  File "/home/stu/testingpip/lib/python2.6/site-packages/pip-1.1-py2.6.egg/pip/backwardcompat.py", line 98, in fwrite
+    f.write(s)
+ValueError: I/O operation on closed file
+
+the piplog.log file is in this gist

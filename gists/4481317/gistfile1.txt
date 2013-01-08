@@ -1,0 +1,33 @@
+hreads = GmailApp.getInboxThreads();
+  //for (var i = 0; i < threads.length; i++) {
+  for (var i = 0; i < 50; i++) {
+  
+    // get all messages in a given thread
+    thread_id = threads[i].getId();
+    var messages = threads[i].getMessages();
+    
+    // iterate over each message
+    for (var j = 0; j < messages.length; j++) {
+   
+      message_id = messages[j].getId();
+      message_from = messages[j].getFrom();
+      message_date = messages[j].getDate();
+      message_to = messages[j].getTo();
+      message_cc = messages[j].getCc();
+      message_subject = messages[j].getSubject();
+      
+      msg = {
+        thread_id:thread_id,
+        id:message_id,
+        from:message_from,
+        date:message_date,
+        to:message_to,
+        cc:message_cc,
+        subject:message_subject,
+      };
+      all_messages.push(msg);
+      Logger.log(msg);
+    }
+  }
+  GmailApp.sendEmail('stuart.powers@gmail.com', 'Walk Threads', JSON.stringify(all_messages,null,2));
+};
